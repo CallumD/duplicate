@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  row_number: 1
+  resolved: false
+
+two:
+  row_number: 1
+  resolved: false

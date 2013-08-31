@@ -1,0 +1,5 @@
+<ul>
+<% @duplicate_rows.each do |row| %>
+  <li><%= link_to row.row_number, duplicate_row_path(row) %></li>
+<% end %>
+</ul>

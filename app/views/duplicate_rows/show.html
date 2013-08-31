@@ -1,0 +1,10 @@
+<%= form_tag select_image_duplicate_row_path @duplicate_row do |form| %>
+<ul>
+<%= render @duplicate_row.pictures %>
+</ul>
+<%= link_to 'next', next_unresolved_duplicate_rows_path %>
+<% @duplicate_row.pictures.each do |row| %>
+<%= hidden_field_tag 'all_values[]', row.id %>
+<% end %>
+<%= submit_tag 'save selection' %>
+<% end %>

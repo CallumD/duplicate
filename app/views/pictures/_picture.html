@@ -1,0 +1,6 @@
+<li>
+<%= picture.id %>
+<%= radio_button_tag 'selected_image', picture.id %>
+<%= picture.geometry %>
+<%= image_tag File.basename(picture.file_name), size:"400x400" %>
+</li>
