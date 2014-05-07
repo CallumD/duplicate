@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130706213028) do
+ActiveRecord::Schema.define(version: 20140506212015) do
 
   create_table "duplicate_rows", force: true do |t|
     t.integer  "row_number"
@@ -22,14 +22,16 @@ ActiveRecord::Schema.define(version: 20130706213028) do
 
   create_table "pictures", force: true do |t|
     t.string   "file_name"
+    t.string   "original_file_name"
     t.string   "format"
     t.string   "geometry"
     t.string   "colors"
     t.string   "size"
     t.string   "resolution"
-    t.integer  "duplicate_row_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "file_path"
+    t.string   "original_file_path"
   end
 
   create_table "properties", force: true do |t|
