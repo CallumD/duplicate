@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe MagicInfo do
-  describe '#populate' do
+  describe '#populate', :needs_finddups => true do
     let(:file_sorter) { FileSorter.new(:file_path => 'spec/test_files') }
 
     before { file_sorter.copy_to_temp }
