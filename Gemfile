@@ -35,6 +35,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development do
+  gem 'guard-rspec', require: false
+end
+
 group :test, :development do
   gem 'rspec-rails', '~> 2.14.2'
 end

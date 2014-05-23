@@ -53,8 +53,6 @@ describe FileSorter do
     it 'contains the correct duplicates' do
       files = File.open(file_sorter.dup_file_path, 'r') { |f| f.readlines }
       expect(files.length).to eq(2)
-      expect(files[0].split.length).to eq(2)
-      expect(files[1].split.length).to eq(4)
     end
 
     it 'can regenerate the file' do
