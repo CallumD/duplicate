@@ -39,4 +39,28 @@ describe FileSorter do
     file_sorter.copy_to_temp
     expect(Picture.all.map(&:original_file_path)).to eq(file_sorter.files)
   end
+
+  context '#populate_duplicates' do
+    before do
+      file_sorter.copy_to_temp
+      file_sorter.populate_duplicates
+    end
+
+    it 'creates a file with the list of duplicates' do
+      expect(File.exists?(file_sorter.dup_file_path)).to eq(true)
+    end
+
+    it 'contains the correct duplicates' do
+      files = File.open(file_sorter.dup_file_path, 'r') { |f| f.readlines }
+      expect(files.length).to eq(2)
+      expect(files[0].split.length).to eq(2)
+      expect(files[1].split.length).to eq(4)
+    end
+
+    it 'can regenerate the file' do
+      File.delete(file_sorter.dup_file_path)
+      file_sorter.populate_duplicates
+      expect(File.exists?(file_sorter.dup_file_path)).to eq(true)
+    end
+  end
 end

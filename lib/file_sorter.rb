@@ -1,14 +1,19 @@
-class FileSorter
-  attr_accessor :file_path, :working_directory
-
-  def initialize(args)
-    self.file_path = args[:file_path]
+class FileSorter < ActiveRecord::Base
+  after_initialize do |user|
     self.working_directory = "/tmp/#{SecureRandom.uuid}/"
     Dir.mkdir(working_directory)
   end
 
+  def populate_duplicates
+    system("findimagedupes -R -q #{working_directory} > #{dup_file_path}")
+  end
+
+  def dup_file_path
+  "#{working_directory}dup.txt"
+  end
+
   def files
-    Dir.glob(self.file_path + '/**/*').reject { |fn| File.directory?(fn) }
+    Dir.glob("#{file_path}/**/*").reject { |fn| File.directory?(fn) }
   end
 
   def copy_to_temp

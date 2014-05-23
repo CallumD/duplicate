@@ -11,13 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506212015) do
+ActiveRecord::Schema.define(version: 20140508193948) do
 
   create_table "duplicate_rows", force: true do |t|
     t.integer  "row_number"
     t.boolean  "resolved"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "file_sorters", force: true do |t|
+    t.string "file_path"
+    t.string "working_directory"
   end
 
   create_table "pictures", force: true do |t|
