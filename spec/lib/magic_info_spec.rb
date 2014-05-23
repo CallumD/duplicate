@@ -9,7 +9,7 @@ describe MagicInfo do
 
     it 'populates an image with data' do
       MagicInfo.new.populate(Picture.first)
-      populated_img = Picture.first
+      populated_img = Picture.where(original_file_name: "GEDC0561.JPG").first
       expect(populated_img.format).to eq('JPEG')
       expect(populated_img.geometry).to eq('4608x3456')
       expect(populated_img.colors).to eq('184537')
