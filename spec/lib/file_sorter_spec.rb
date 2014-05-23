@@ -40,7 +40,7 @@ describe FileSorter do
     expect(Picture.all.map(&:original_file_path)).to eq(file_sorter.files)
   end
 
-  context '#populate_duplicates' do
+  context '#populate_duplicates', :needs_finddups => true do
     before do
       file_sorter.copy_to_temp
       file_sorter.populate_duplicates
