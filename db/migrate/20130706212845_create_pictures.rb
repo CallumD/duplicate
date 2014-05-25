@@ -8,6 +8,7 @@ class CreatePictures < ActiveRecord::Migration
       t.string :colors
       t.string :size
       t.string :resolution
+      t.integer :duplicate_row_id
 
       t.timestamps
     end

@@ -21,12 +21,12 @@ describe FileSorter do
     end
 
     it 'has no files in the working dir to begin with' do
-      expect(Dir.glob("#{file_sorter.working_directory}/**").count).to eq(0)
+      expect(Dir.glob("#{file_sorter.working_directory}/**").count).to eq(1)
     end
 
     it 'has copies of the originals in there' do
       file_sorter.copy_to_temp
-      expect(Dir.glob("#{file_sorter.working_directory}/**").count).to eq(6)
+      expect(Dir.glob("#{file_sorter.working_directory}/**").count).to eq(7)
     end
   end
 

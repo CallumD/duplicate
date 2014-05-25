@@ -7,7 +7,8 @@ Duplicate::Application.routes.draw do
       get 'next_unresolved'
     end
   end
-    
+
+  get '/images/*filename' => 'images#serve'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -49,7 +50,7 @@ Duplicate::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

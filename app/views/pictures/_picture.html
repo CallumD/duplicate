@@ -2,5 +2,6 @@
 <%= picture.id %>
 <%= radio_button_tag 'selected_image', picture.id %>
 <%= picture.geometry %>
-<%= image_tag File.basename(picture.file_name), size:"400x400" %>
+<%= picture.file_path %>
+<%= image_tag picture.thumb_path.gsub(/\/tmp\//,'') %>
 </li>

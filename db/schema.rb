@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20140508193948) do
 
   create_table "duplicate_rows", force: true do |t|
+    t.string   "file_path"
     t.integer  "row_number"
     t.boolean  "resolved"
     t.datetime "created_at"
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140508193948) do
     t.string   "colors"
     t.string   "size"
     t.string   "resolution"
+    t.integer  "duplicate_row_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "file_path"
